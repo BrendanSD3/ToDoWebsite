@@ -1,0 +1,26 @@
+﻿@page
+@model ToDoWebsite.Pages.homeModel
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container" style="float:left">
+             
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="~/images/img_avatar1.png" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Welome @UserManager.GetUserName(User)!</h4>
+                <p class="card-text">Click here to manage your profile details or reset a passowrd</p>
+                <a id="manage" title="Manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary stretched-link">Manage Profile</a>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Excel button</button>
+
+
+   
+
+}
