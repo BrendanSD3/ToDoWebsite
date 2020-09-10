@@ -5,10 +5,63 @@
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+@*<style>
+    form input,
+    form label {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    form label {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0 0 5px 0;
+        top: -33px;
+        transition: all 0.5s ease-in-out; /* adding animation */
+        z-index: 1;
+    }
+    form input[type="text"],
+    form input[type="password"] {
+        font-size: 1.25em;
+        padding: 0 0 5px 0;
+        margin-bottom: 0.5em;
+        z-index: 10;
+        border: none;
+        border-bottom: 2px solid black;
+        background: transparent; /* adding transparency */
+    }
+    .filled label {
+        top: 0;
+        font-size: 0.8em;
+    }
+
+</style>*@
+@*<script>
+    $("form input").on("blur input focus", function () {
+        var $field = $(this).closest(".field");
+        if (this.value) {
+            $field.addClass("filled");
+        } else {
+            $field.removeClass("filled");
+        }
+    });
+
+
+    $("form input").on("focus", function () {
+        var $field = $(this).closest(".field");
+        if (this) {
+            $field.addClass("filled");
+        } else {
+            $field.removeClass("filled");
+        }
+    });
+</script>*@
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="container" style="float:left">
-             
+    <h1>@Model.Message</h1>
+    <div class="container" style="float:left; width:500px;">
+
         <div class="card" style="width:400px">
             <img class="card-img-top" src="~/images/img_avatar1.png" alt="Card image" style="width:100%">
             <div class="card-body">
@@ -17,10 +70,37 @@
                 <a id="manage" title="Manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary stretched-link">Manage Profile</a>
             </div>
         </div>
-    </div>
-    <button class="btn btn-primary">Excel button</button>
-
-
    
+    </div>
+    <div class="container">
+        <div class="card" style="width:400px;">
+           <div class="card-header">
+               <h2>Please fill out the form below </h2>
+           </div>
+           <div class="card-body">
+               <form asp-page-handler="view"  method="post">
+                   <div class="field">
+                       <label for="wsName">Worksheet Name</label>
+                       <input type="text" name="wsName" id="wsName" required />
+                   </div>
+                   <div id="nameandoccp">
+                   <div class="field">
+                       <label for="FName1">First Name <span aria-hidden="true">*</span></label>
+                       <input type="text" name="FName1" id="FName1" required />
+                       <a class="fa fa-plus" style="font-size:24px" id="add" onclick="add();" title="add another name"></a>
+                   </div>
+                   
+                   <div class="field">
+                       <label for="Occup1">Occupation <span aria-hidden="true">*</span></label>
+                       <input type="text" name="Occup1" id="Occup1" required />
+                   </div>
+                       </div>
+                   <input type="number" name="add1" id="add1" value="1" />
+                   <button class="btn btn-primary">Submit</button>
+               </form>
+           </div>
+        </div>
+    </div>
+
 
 }
