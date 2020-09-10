@@ -78,24 +78,26 @@
                <h2>Please fill out the form below </h2>
            </div>
            <div class="card-body">
-               <form asp-page-handler="view"  method="post">
-                   <div class="field">
+               <form asp-page-handler="view"  method="post" >
+                   
+                   <div class="form-group">
                        <label for="wsName">Worksheet Name</label>
-                       <input type="text" name="wsName" id="wsName" required />
+                       <input type="text" name="wsName" class="form-control" id="wsName" required />
                    </div>
                    <div id="nameandoccp">
-                   <div class="field">
+                      <label for="add">Add another person</label> <a class="btn btn-secondary" style="font-size:24px; color:cadetblue" id="add" onclick="add();" title="add another name"><i class="fa fa-plus"></i></a>
+                   <div class="form-group">
                        <label for="FName1">First Name <span aria-hidden="true">*</span></label>
-                       <input type="text" name="FName1" id="FName1" required />
-                       <a class="fa fa-plus" style="font-size:24px" id="add" onclick="add();" title="add another name"></a>
+                       <input type="text" name="FName1" id="FName1" class="form-control" required />
+                       
                    </div>
                    
-                   <div class="field">
+                   <div class="form-group">
                        <label for="Occup1">Occupation <span aria-hidden="true">*</span></label>
-                       <input type="text" name="Occup1" id="Occup1" required />
+                       <input type="text" name="Occup1" class="form-control" id="Occup1" required />
                    </div>
                        </div>
-                   <input type="number" name="add1" id="add1" value="1" />
+                   <input type="hidden" name="add1" id="add1" value="1" />
                    <button class="btn btn-primary">Submit</button>
                </form>
            </div>

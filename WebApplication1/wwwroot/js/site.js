@@ -28,8 +28,8 @@ function add() {
     console.log(value);
     value++;
     document.getElementById("add1").value=value;
-    var new_input = "<div class='field'><label for='FName" + value + "'>First Name <span aria-hidden='true'>*</span></label><input type='text' name='FName" + value + "' id='FName" + value + "' required /></div>" +
-        "<div class='field'><label for='Occup" + value + "'>Occupation <span aria-hidden='true'>*</span></label><input type='text' name='Occup" + value + "' id='Occup" + value +"' required /></div>";
+    var new_input = "<div class='form-group'><label for='FName" + value + "'>First Name <span aria-hidden='true'>*</span></label><input type='text' class='form-control' name='FName" + value + "' id='FName" + value + "' required /></div>" +
+        "<div class='form-group'><label for='Occup" + value + "'>Occupation <span aria-hidden='true'>*</span></label><input type='text' class='form-control' name='Occup" + value + "' id='Occup" + value +"' required /></div>";
     $('#nameandoccp').append(new_input);
    
 }
