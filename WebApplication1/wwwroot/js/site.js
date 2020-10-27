@@ -13,6 +13,27 @@
 //        this.className += " active";
 //    });
 //}
+var tog = document.getElementById("tog");
+var tog2 = document.getElementById("tog2");
+var thing = document.getElementById("thing");
+var thing2 = document.getElementById("thing2");
+
+tog.addEventListener("click", function () {
+
+    thing.classList.toggle("m-fadeOut");
+    
+
+});
+$('#tog2').click(function () {
+    $(this).text(function (i, v) {
+        return v === 'Show Excel' ? 'Hide' : 'Show Excel'
+    })
+});
+tog2.addEventListener("click", function () {
+
+    thing2.classList.toggle("m-fadeOut");
+    
+});
 $(document).ready(function () {
 
     $('#sidebarCollapse').on('click', function () {
@@ -20,7 +41,7 @@ $(document).ready(function () {
     });
 
 });
- $('#add').on(click, add);
+ //$('#add').on(click, add);
 var value = 0;
 function add() {
     
@@ -67,3 +88,19 @@ $("form input").on("focus", function () {
         $field.removeClass("filled");
     }
 });
+
+
+
+
+
+
+
+
+//btn.addEventListener('click', evt => {
+//    card.classList.toggle('show')
+//});
+//$(document).ready(function () {
+//    $("#button").click(function () {
+//        $(".show").toggle();
+//    });
+//});

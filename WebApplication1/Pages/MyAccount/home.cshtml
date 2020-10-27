@@ -62,7 +62,9 @@
     <h1>@Model.Message</h1>
     <div class="container" style="float:left; width:500px;">
 
-        <div class="card" style="width:400px">
+        <button style="font-size:10px" id="tog">Close <i class="fa fa-close"></i></button>
+
+        <div class="card " id="thing" style="width:400px">
             <img class="card-img-top" src="~/images/img_avatar1.png" alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Welome @UserManager.GetUserName(User)!</h4>
@@ -70,38 +72,40 @@
                 <a id="manage" title="Manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary stretched-link">Manage Profile</a>
             </div>
         </div>
-        
-   
+
+
     </div>
     <div class="container">
-        <div class="card" style="width:400px;">
-           <div class="card-header">
-               <h2>Please fill out the form below </h2>
-           </div>
-           <div class="card-body">
-               <form asp-page-handler="view"  method="post" >
-                   
-                   <div class="form-group">
-                       <label for="wsName">Worksheet Name</label>
-                       <input type="text" name="wsName" class="form-control" id="wsName" required />
-                   </div>
-                   <div id="nameandoccp">
-                      <label for="add">Add another person</label> <a class="btn btn-secondary" style="font-size:24px; color:cadetblue" id="add" onclick="add();" title="add another name"><i class="fa fa-plus"></i></a>
-                   <div class="form-group">
-                       <label for="FName1">First Name <span aria-hidden="true">*</span></label>
-                       <input type="text" name="FName1" id="FName1" class="form-control" required />
-                       
-                   </div>
-                   
-                   <div class="form-group">
-                       <label for="Occup1">Occupation <span aria-hidden="true">*</span></label>
-                       <input type="text" name="Occup1" class="form-control" id="Occup1" required />
-                   </div>
-                       </div>
-                   <input type="hidden" name="add1" id="add1" value="1" />
-                   <button class="btn btn-primary">Submit</button>
-               </form>
-           </div>
+        <button style="font-size:10px" id="tog2">Close <i class="fa fa-close"></i></button>
+      
+        <div class="card " id="thing2" style="width:400px;">
+            <div class="card-header">
+                <h2>Export some details to Excel </h2>
+            </div>
+            <div class="card-body">
+                <form asp-page-handler="view" method="post">
+
+                    <div class="form-group">
+                        <label for="wsName">Worksheet Name</label>
+                        <input type="text" name="wsName" class="form-control" id="wsName" required />
+                    </div>
+                    <div id="nameandoccp">
+                        <label for="add">Add another person</label> <a class="btn btn-secondary" style="font-size:24px; color:cadetblue" id="add" onclick="add();" title="add another name"><i class="fa fa-plus"></i></a>
+                        <div class="form-group">
+                            <label for="FName1">First Name <span aria-hidden="true">*</span></label>
+                            <input type="text" name="FName1" id="FName1" class="form-control" required />
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Occup1">Occupation <span aria-hidden="true">*</span></label>
+                            <input type="text" name="Occup1" class="form-control" id="Occup1" required />
+                        </div>
+                    </div>
+                    <input type="hidden" name="add1" id="add1" value="1" />
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 
